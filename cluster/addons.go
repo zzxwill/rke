@@ -235,6 +235,9 @@ func (c *Cluster) deployWithKubectl(ctx context.Context, addonYaml string) error
 }
 
 func (c *Cluster) doAddonDeploy(ctx context.Context, addonYaml, resourceName string, isCritical bool) error {
+	// Remove add-on apps
+	return nil
+
 	if c.UseKubectlDeploy {
 		if err := c.deployWithKubectl(ctx, addonYaml); err != nil {
 			return &addonError{fmt.Sprintf("%v", err), isCritical}
